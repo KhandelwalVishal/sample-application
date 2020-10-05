@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,10 +19,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.example.domain.DataSets;
 import com.example.service.DataSetsService;
 
-/**
- * @author Vkhandelwal
- *
- */
 @RestController
 @RequestMapping(value = "${controller.uri.datasets}")
 public class WebController {
@@ -46,13 +41,9 @@ public class WebController {
 	}
 
 	@PostMapping(value = "/addDataSet")
-	public ResponseEntity<?> addDataSet(@RequestBody DataSets dataSet, BindingResult bindingResult) {
+	public ResponseEntity<?> addDataSet(@RequestBody DataSets dataSet) {
 		LOG.info("Updating Data Set...");
 		try {
-			if (bindingResult.hasErrors()) {
-				StringBuilder errorMsg = new StringBuilder();
-				return new ResponseEntity<>(errorMsg, HttpStatus.EXPECTATION_FAILED);
-			}
 			dataSetsService.addDataSet(dataSet);
 			return new ResponseEntity<>("success", HttpStatus.OK);
 		} catch (Exception ex) {
@@ -64,13 +55,13 @@ public class WebController {
 	
 	@PostMapping(value = "/uploadBulkDataSets")
 	public ResponseEntity<?> uploadBulkDataSets(@RequestParam("fileUpload") MultipartFile fileUpload) {
-		LOG.info("Bulk Uploading Data Sets :: START");
+		LOG.info("Bulk Uploading Data Sets");
 		try {
 			dataSetsService.uploadBulkDataSets(fileUpload.getInputStream());
 			return new ResponseEntity<>("success", HttpStatus.OK);
 
 		} catch (Exception ex) {
-			LOG.error("Error while updating Data Set...", ex);
+			LOG.error("Error while Uploading Bulk Data Set...", ex);
 			return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}

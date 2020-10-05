@@ -10,11 +10,7 @@ $('#searchstock')
 								dataType : 'json',
 								success : function(resp) {
 									var trHTML = '';
-									$
-											.each(
-													resp,
-													function(i, userData) {
-														for (i = 0; i < resp.length; i++) {
+									for (i = 0; i < resp.length; i++) {
 															trHTML += '<tr><td>'
 																	+ resp[i].quarter
 																	+ '</td><td>'
@@ -49,7 +45,6 @@ $('#searchstock')
 																	+ resp[i].ptReturnNextDividend
 																	+ '</td></tr>';
 														}
-													});
 									$('#tBody').append(trHTML);
 								},
 								error : function(err) {

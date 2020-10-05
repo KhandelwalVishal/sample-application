@@ -10,10 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * @author Vkhandelwal
- */
-
 @Entity
 @Table(name = "DATASETS")
 public class DataSets implements Serializable {
@@ -24,7 +20,7 @@ public class DataSets implements Serializable {
 	private static final long serialVersionUID = 6819186935275406695L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID", nullable = false)
 	private Integer id;
 
@@ -75,8 +71,7 @@ public class DataSets implements Serializable {
 
 	@Column(name = "percent_return_next_dividend")
 	private BigDecimal ptReturnNextDividend;
-	
-	
+
 	public DataSets() {
 		super();
 	}
