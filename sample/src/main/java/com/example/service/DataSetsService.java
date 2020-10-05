@@ -28,7 +28,8 @@ public class DataSetsService {
 		List<DataSets> dataSets;
 		LOG.info("Finding data set by stock ticker");
 		dataSets = datasetsRepository.findByStockTicker(stockTicker);
-		return dataSets;		
+		return dataSets;
+		
 	}
 
 	public void addDataSet(DataSets dataSet) {
