@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<link rel="shortcut icon" href="#">
+<title>Test Application</title>
+<style type="text/css">
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+</style>
+</head>
+
+<body>
+	<div>
+		<br>Bulk Upload Functionality<br> <br>Choose file to
+		upload<br>
+		<form action="http://localhost:8080/datasets/uploadBulkDataSets"
+			method="post" enctype="multipart/form-data">
+			<input name="fileUpload" id="fileUpload" type="file" /><br>
+			<br>
+			<button name="submit" type="submit">Upload</button>
+		</form>
+		<br></br>
+		<hr>
+		<br>Search By Stock</br	> <input id="stock" type="text" /><br>
+		<br>
+		<button name="search" type="button" id="searchstock">Search</button>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Quarter</th>
+					<th>Stock</th>
+					<th>Date</th>
+					<th>Open</th>
+					<th>High</th>
+					<th>Low</th>
+					<th>Close</th>
+					<th>Volume</th>
+					<th>%_chng_prc</th>
+					<th>%_chng_vol_over_last_wk</th>
+					<th>prv_weeks_vol</th>
+					<th>nxt_weeks_open</th>
+					<th>nxt_weeks_close</th>
+					<th>%_change_nxt_weeks_prc</th>
+					<th>days_to_next_dvnd</th>
+					<th>%_return_nxt_dvnd</th>
+				</tr>
+			</thead>
+			<tbody id="tBody"></tbody>
+		</table>
+		<br></br>
+		<hr>
+
+		<br>Add New Data Set</br> <label for="Quarter">Quarter</label> <input
+			type="text" name="quarter" id="quarter"><br> <label
+			for="Stock">Stock</label> <input type="text" name="Stock" id="Stock"><br>
+		<label for="Date">Date</label> <input type="text" name="Date"
+			id="Date"><br> <label for="Open">Open</label> <input
+			type="text" name="Open" id="Open"><br> <label for="High">High</label>
+		<input type="text" name="High" id="High"><br> <label
+			for="Low">Low</label> <input type="text" name="Low" id="Low"><br>
+		<label for="Close">Close</label> <input type="text" name="Close"
+			id="Close"><br> <label for="Volume">Volume</label> <input
+			type="text" name="Volume" id="Volume"><br> <label
+			for="%_chng_prc">%_chng_prc</label> <input type="text"
+			name="%_chng_prc" id="chng_prc"><br> <label
+			for="%_chng_vol_over_last_wk">%_chng_vol_over_last_wk</label> <input
+			type="text" name="%_chng_vol_over_last_wk" id="chng_vol_over_last_wk"><br>
+		<label for="prv_weeks_vol">prv_weeks_vol</label> <input type="text"
+			name="prv_weeks_vol" id="prv_weeks_vol"><br> <label
+			for="nxt_weeks_open">nxt_weeks_open</label> <input type="text"
+			name="nxt_weeks_open" id="nxt_weeks_open"><br> <label
+			for="nxt_weeks_close">%nxt_weeks_close</label> <input type="text"
+			name="nxt_weeks_close" id="nxt_weeks_close"><br> <label
+			for="%_change_nxt_weeks_prc">%_change_nxt_weeks_prc</label> <input
+			type="text" name="%_change_nxt_weeks_prc" id="change_nxt_weeks_prc"><br>
+		<label for="days_to_next_dvnd">days_to_next_dvnd</label> <input
+			type="text" name="days_to_next_dvnd" id="days_to_next_dvnd"><br>
+		<label for="%_return_nxt_dvnd">%_return_nxt_dvnd</label> <input
+			type="text" name="%_return_nxt_dvnd" id="return_nxt_dvnd"><br>
+
+		<button name="add" type="button" id="addstock">Add New Stock</button>
+	</div>
+
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+		type="text/javascript"></script>
+
+	<script src="js/script1.js"></script>
+</body>
+</html>
